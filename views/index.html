@@ -14,7 +14,7 @@
 
 <body>
     <div class="header">
-
+        AFADFSDF
     </div>
 
     <div class="main">
@@ -120,7 +120,16 @@
             </div>
         </div>
         <div class="grid_overlay">
-            
+            {{ range $regionID, $stats := .data }}
+                <div class="region" style="top: {{$regionID}}px; left: {{$regionID}}px;">
+                    <div>Sick: {{$stats.Sick}}</div>
+                    <div>Dead: {{$stats.Dead}}</div>
+                    <div>Cured: {{$stats.Cured}}</div>
+                    {{ with index $.meta $regionID }}
+                    <div>Region: {{ . }}</div>
+                    {{ end }}
+                </div>
+            {{ end }}
         </div>
     </div>
     <script src="/static/jquery3_7_1.js"></script>

@@ -20,7 +20,7 @@ func GetStatsFromSickTable(ctx context.Context, db *sql.DB, opts *SickOptions) (
 		opts.DateFrom = time.Now().Add(-1 * time.Hour * 24 * 30).Unix()
 	}
 
-	query := sq.Select("region_id", "type_id", "name", "count").
+	query := sq.Select("region_id", "type_id", "name", "count").From("sick").
 		Where(sq.GtOrEq{"registered_date": opts.DateFrom})
 
 	if opts.SickType != "" {
