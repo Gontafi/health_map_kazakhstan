@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"database/sql"
+	"github.com/bytedance/sonic"
 	"github.com/gofiber/fiber/v2"
 	"log"
 	"real_time_health_map/internal/service"
@@ -20,5 +21,16 @@ func (h *Handlers) MainPage(ctx *fiber.Ctx) error {
 	}
 
 	log.Println(stats)
-	return ctx.Render("index", fiber.Map{"data": stats, "meta": utils.OblastMap})
+	data, err := sonic.Marshal(&stats)
+	if err != nil {
+		return err
+	}
+
+	log.Println(string(data))
+	meta, err := sonic.Marshal(&utils.OblastMap)
+	if err != nil {
+		return err
+	}
+	return ctx.Render("index",
+		fiber.Map{"data": string(data), "meta": string(meta)})
 }

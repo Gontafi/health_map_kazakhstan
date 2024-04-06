@@ -6,11 +6,11 @@ type Region struct {
 }
 
 type Statistics struct {
-	RegionID int16
-	Sick     int
-	Dead     int
-	Cured    int
-	SickName string
+	RegionID int16  `json:"region_id,omitempty"`
+	Sick     int    `json:"sick"`
+	Dead     int    `json:"dead"`
+	Cured    int    `json:"cured"`
+	SickName string `json:"sick_name"`
 }
 
 type Sick struct {
