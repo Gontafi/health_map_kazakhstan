@@ -1,4 +1,4 @@
-# My Go Application
+# About
 
 This is a simple Go application that highlights regions of Kazakhstan on a map. When you click on a specific region, you will see information about the health status of its population (infected, deceased, recovered). The application uses SQLite for the database.
 
