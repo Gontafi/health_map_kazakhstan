@@ -3,9 +3,10 @@ package repo
 import (
 	"context"
 	"database/sql"
-	sq "github.com/Masterminds/squirrel"
 	"real_time_health_map/internal/models"
 	"time"
+
+	sq "github.com/Masterminds/squirrel"
 )
 
 type SickOptions struct {
